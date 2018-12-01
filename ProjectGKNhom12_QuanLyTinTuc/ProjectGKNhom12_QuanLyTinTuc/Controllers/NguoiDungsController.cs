@@ -36,14 +36,14 @@ namespace ProjectGKNhom12_QuanLyTinTuc.Controllers
                     return View();
                 }
                 HttpContext.Session.Set("MaNguoiDung",nd);
-                    return RedirectToAction("Index", "TinTuc");
+                    return RedirectToAction("Index", "TinTucs");
             }
             return View();
         }
         public IActionResult Logout()
         {
             HttpContext.Session.Remove("MaNguoiDung");
-            return RedirectToAction("Index", "NguoiDung");
+            return RedirectToAction("Index", "NguoiDungs");
         }
     }
 }
