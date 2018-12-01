@@ -50,7 +50,7 @@ namespace ProjectGKNhom12_QuanLyTinTuc.Controllers
         public IActionResult Create()
         {
             ViewData["MaNguoiDung"] = new SelectList(_context.NguoiDungs, "MaNguoiDung", "MaNguoiDung");
-            ViewData["MaTheLoai"] = new SelectList(_context.TheLoais, "MaTheLoai", "MaTheLoai");
+            ViewData["MaTheLoai"] = new SelectList(_context.TheLoais, "MaTheLoai", "TenTheLoai");
             return View();
         }
 
