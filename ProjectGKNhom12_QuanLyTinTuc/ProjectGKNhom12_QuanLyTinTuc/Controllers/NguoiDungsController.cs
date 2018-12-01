@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProjectGKNhom12_QuanLiTinTuc.Models;
 using ProjectGKNhom12_QuanLyTinTuc.Models;
+
 
 namespace ProjectGKNhom12_QuanLyTinTuc.Controllers
 {
@@ -18,136 +20,30 @@ namespace ProjectGKNhom12_QuanLyTinTuc.Controllers
         {
             _context = context;
         }
-
-        // GET: NguoiDungs
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.NguoiDungs.ToListAsync());
-        }
-
-        // GET: NguoiDungs/Details/5
-        public async Task<IActionResult> Details(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var nguoiDung = await _context.NguoiDungs
-                .SingleOrDefaultAsync(m => m.MaNguoiDung == id);
-            if (nguoiDung == null)
-            {
-                return NotFound();
-            }
-
-            return View(nguoiDung);
-        }
-
-        // GET: NguoiDungs/Create
-        public IActionResult Create()
+        public IActionResult Login()
         {
             return View();
         }
-
-        // POST: NguoiDungs/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MaNguoiDung,HoTen,MatKhau,KieuNguoiDung")] NguoiDung nguoiDung)
+        public IActionResult Login(LoginViewModel model)
         {
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
-                _context.Add(nguoiDung);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(nguoiDung);
-        }
-
-        // GET: NguoiDungs/Edit/5
-        public async Task<IActionResult> Edit(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var nguoiDung = await _context.NguoiDungs.SingleOrDefaultAsync(m => m.MaNguoiDung == id);
-            if (nguoiDung == null)
-            {
-                return NotFound();
-            }
-            return View(nguoiDung);
-        }
-
-        // POST: NguoiDungs/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("MaNguoiDung,HoTen,MatKhau,KieuNguoiDung")] NguoiDung nguoiDung)
-        {
-            if (id != nguoiDung.MaNguoiDung)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
+                NguoiDung nd = _context.NguoiDungs.SingleOrDefault(p => p.MaNguoiDung == model.MaNguoiDung && p.MatKhau == model.matKhau);
+                if(nd==null)
                 {
-                    _context.Update(nguoiDung);
-                    await _context.SaveChangesAsync();
+                    ModelState.AddModelError("loi", "null");
+                    return View();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!NguoiDungExists(nguoiDung.MaNguoiDung))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                HttpContext.Session.Set("MaNguoiDung",nd);
+                    return RedirectToAction("Index", "TinTuc");
             }
-            return View(nguoiDung);
+            return View();
         }
-
-        // GET: NguoiDungs/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public IActionResult Logout()
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var nguoiDung = await _context.NguoiDungs
-                .SingleOrDefaultAsync(m => m.MaNguoiDung == id);
-            if (nguoiDung == null)
-            {
-                return NotFound();
-            }
-
-            return View(nguoiDung);
-        }
-
-        // POST: NguoiDungs/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
-        {
-            var nguoiDung = await _context.NguoiDungs.SingleOrDefaultAsync(m => m.MaNguoiDung == id);
-            _context.NguoiDungs.Remove(nguoiDung);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool NguoiDungExists(string id)
-        {
-            return _context.NguoiDungs.Any(e => e.MaNguoiDung == id);
+            HttpContext.Session.Remove("MaNguoiDung");
+            return RedirectToAction("Index", "NguoiDung");
         }
     }
 }
