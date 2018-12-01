@@ -12668,11 +12668,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Escanor\\Desktop\\ProjectGKNhom12_QuanLyTinTuc\\ProjectGKNhom12_QuanLyTinTuc\\ProjectGKNhom12_QuanLyTinTuc.csproj",
+      "projectUniqueName": "C:\\Users\\Escanor\\Documents\\Project_GK_Nhom12_QLTinTuc\\ProjectGKNhom12_QuanLyTinTuc\\ProjectGKNhom12_QuanLyTinTuc\\ProjectGKNhom12_QuanLyTinTuc.csproj",
       "projectName": "ProjectGKNhom12_QuanLyTinTuc",
-      "projectPath": "C:\\Users\\Escanor\\Desktop\\ProjectGKNhom12_QuanLyTinTuc\\ProjectGKNhom12_QuanLyTinTuc\\ProjectGKNhom12_QuanLyTinTuc.csproj",
+      "projectPath": "C:\\Users\\Escanor\\Documents\\Project_GK_Nhom12_QLTinTuc\\ProjectGKNhom12_QuanLyTinTuc\\ProjectGKNhom12_QuanLyTinTuc\\ProjectGKNhom12_QuanLyTinTuc.csproj",
       "packagesPath": "C:\\Users\\Escanor\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Escanor\\Desktop\\ProjectGKNhom12_QuanLyTinTuc\\ProjectGKNhom12_QuanLyTinTuc\\obj\\",
+      "outputPath": "C:\\Users\\Escanor\\Documents\\Project_GK_Nhom12_QLTinTuc\\ProjectGKNhom12_QuanLyTinTuc\\ProjectGKNhom12_QuanLyTinTuc\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
