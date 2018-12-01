@@ -1,0 +1,58 @@
+﻿@model ProjectGKNhom12_QuanLiTinTuc.Models.TinTuc
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TinTuc</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TieuDe)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TieuDe)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NoiDung)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NoiDung)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Anh)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Anh)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayDang)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NgayDang)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NguoiDung)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NguoiDung.MaNguoiDung)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TheLoai)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TheLoai.MaTheLoai)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="MaTin" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

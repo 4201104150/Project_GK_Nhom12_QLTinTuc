@@ -1,0 +1,55 @@
+﻿@model ProjectGKNhom12_QuanLiTinTuc.Models.TinTuc
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TinTuc</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TieuDe)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TieuDe)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NoiDung)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NoiDung)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Anh)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Anh)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayDang)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NgayDang)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NguoiDung)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NguoiDung.MaNguoiDung)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TheLoai)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TheLoai.MaTheLoai)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.MaTin">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

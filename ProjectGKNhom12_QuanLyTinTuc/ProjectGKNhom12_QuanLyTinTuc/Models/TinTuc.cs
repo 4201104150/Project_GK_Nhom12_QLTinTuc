@@ -15,8 +15,13 @@ namespace ProjectGKNhom12_QuanLiTinTuc.Models
         public string NoiDung { get; set; }
         public string Anh { get; set; }
         public DateTime NgayDang { get; set; }
-        public string NguoiDang { get; set; }
-        [ForeignKey("MaTL")]
+
+        [ForeignKey("MaNguoiDung")]
+        public string MaNguoiDung { get; set; }
+        public NguoiDung NguoiDung { get; set; }
+
+        [ForeignKey("MaTheLoai")]
         public string MaTheLoai { get; set; }
+        public TheLoai TheLoai { get; set; }
     }
 }
